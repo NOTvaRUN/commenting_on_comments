@@ -1,0 +1,31 @@
+<mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title class="commentor">Shiba Inu</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
+        molestiae quas vel sint.</p>
+    <mat-card-subtitle>13:04 <i class="bi bi-dot"></i>
+    03 May 23</mat-card-subtitle>
+    </mat-card-content>
+    <mat-card-actions class="p-0 mt-2">
+        <mat-accordion class="w-100">
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Self aware panel
+                </mat-panel-title>
+                <mat-panel-description>
+                    Currently I am {{panelOpenState ? 'open' : 'closed'}}
+                </mat-panel-description>
+                </mat-expansion-panel-header>
+                <p>I'm visible because I am open</p>
+            </mat-expansion-panel>
+        </mat-accordion>
+      <!-- <button class="comment-icon">
+        <i class="bi bi-chat-right-dots"></i>
+        <span>Reply</span>
+      </button> -->
+    </mat-card-actions>
+</mat-card>

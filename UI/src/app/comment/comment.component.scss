@@ -1,0 +1,24 @@
+mat-card, mat-expansion-panel{
+    box-shadow: none!important;
+}
+.commentor{
+    font-size: 15px;
+    letter-spacing: 1.1px;
+}
+.comment-icon{
+    border: 1px solid #d3cece;
+    background: none;
+    display: flex;
+    width: 90px;
+    height: 30px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.comment-icon:hover{
+    border: 1px solid #f8f7f7;
+
+    background-color: rgb(224, 224, 224);
+}
