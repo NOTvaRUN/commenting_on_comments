@@ -1,12 +1,33 @@
-<mat-card class="example-card">
+<mat-card class="card">
     <mat-card-header>
-      <mat-card-title>Comments</mat-card-title>
+      <mat-card-title>
+        <span class="comment-header">
+            Comments
+        </span> </mat-card-title>
     </mat-card-header>
     <hr class="m-0">
     <mat-card-content class="mt-3">
-        <div>
-            
-            <app-comment></app-comment>
+        <ng-template #recursiveList let-nodes>
+            <ng-container *ngFor="let node of nodes">
+                <div class="content-holder">
+                    <div class="line-block" *ngIf="node.pid != 0">
+                      <div class="line">
+                        <i class="threadline"></i>
+                      </div>
+                    </div>
+                    <div class="comment-block">
+                        <app-comment (commentAdded)="ca.emit(true)" [comment]="node"></app-comment>  
+                        <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: node.children }"></ng-container>
+                    </div>
+                </div>
+            </ng-container>
+        </ng-template>
+        <div *ngIf="mainComments.length; else noComments">
+            <ng-container *ngTemplateOutlet="recursiveList; context:{ $implicit: mainComments }"></ng-container>
         </div>
+        <ng-template #noComments>
+            No Comments found
+
+        </ng-template>
     </mat-card-content>
 </mat-card>

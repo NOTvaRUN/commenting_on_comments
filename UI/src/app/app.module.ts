@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {TextFieldModule} from '@angular/cdk/text-field';
 import { CommentComponent } from './comment/comment.component';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatMenuModule} from '@angular/material/menu';
+import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 @NgModule({
@@ -31,6 +34,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     FormsModule,
     ReactiveFormsModule,
     MatExpansionModule,
+    MatDialogModule,
+    HttpClientModule,
+    MatMenuModule,
     MatInputModule
   ],
   providers: [],

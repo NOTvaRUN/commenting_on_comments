@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpService } from '../services/http.service';
 
 @Component({
   selector: 'app-add-comment',
@@ -10,31 +12,35 @@ export class AddCommentComponent {
   public comment = "";
   panelOpenState = false;
 
-  public comments = [
-    {
-      id: 1,
-      pid: 0,
-      userName: "John",
-      comment: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint.",
-      time: "13:04",
-      date: "03 May 23"
-    },
-    {
-      id: 2,
-      pid: 0,
-      userName: "Mary",
-      comment: "Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint.",
-      time: "13:04",
-      date: "03 May 23"
-    },
-    {
-      id: 3,
-      pid: 1,
-      userName: "Sunny",
-      comment: "Ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint.",
-      time: "13:04",
-      date: "03 May 23"
-    }
-  ]
+  @Output() commentAdded = new EventEmitter();
+  constructor(private http: HttpService){
+
+  }
+  commentForm = new FormGroup({
+    username: new FormControl('', Validators.required),
+    comment: new FormControl('',  Validators.required),
+  });
+
+
+  ngOnInit(): void {
+  }
+
+  addComment(){
+    this.http.addComments({
+      "pid": 0,
+      "userName": this.commentForm.value.username,
+      "comment": this.commentForm.value.comment
+    }).subscribe(data=>{
+      if(data.status === "success"){
+        this.commentAdded.emit(true)
+        this.commentForm.reset()
+      } else {
+        alert("Comment add failed");
+      }
+    }, (err)=>{
+      alert("Comment add failed");
+    })
+  }
+
 
 }

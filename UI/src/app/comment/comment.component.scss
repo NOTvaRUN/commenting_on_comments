@@ -1,24 +1,150 @@
-mat-card, mat-expansion-panel{
-    box-shadow: none!important;
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
-.commentor{
-    font-size: 15px;
-    letter-spacing: 1.1px;
+.comment-card{
+    border-radius: 4px;
+    box-sizing: border-box;
+    max-width: 800px;
+    width: calc(100% - 56px);
+    padding: 0;
+    -ms-flex-item-align: start;
+    align-self: flex-start;
+    margin: 0;
+    .heading{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    .user-name{
+        min-height: 18px;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        justify-content: flex-start;
+        .name-field{
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 16px;
+            color: #1A1A1B;
+        }
+        .separator{
+            flex: 0 0 auto;
+            margin: 0 4px;
+            font-size: 12px;
+            align-self: baseline;   
+            font-weight: 400;
+            line-height: 16px;
+            color: #7c7c7c;
+        }
+        .comment-date{
+            align-self: baseline;
+            font-family: Noto Sans,Arial,sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 18px;
+            color: #7c7c7c;
+        }
+    }
+ 
+    .comment{
+        padding: 2px 0;
+        width: 100%;
+        .view{
+            font-family: Noto Sans,Arial,sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 21px;
+            word-break: break-word;
+            overflow: auto;
+            padding-bottom: 1px;
+            margin-bottom: -1px;
+            color: #1c1c1c;
+        }
+    }
+    .footer{
+        align-items: center;
+        display: flex;
+        flex-flow: row nowrap;
+        .actions{
+            margin: 4px 0;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 16px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: #878A8C;
+            .reply-btn{
+                border-radius: 2px;
+                align-items: center;
+                display: flex;
+                height: 100%;
+                line-height: 20px;
+                margin-right: 4px;
+                padding: 6px 4px;
+                text-align: left;
+                transition: color .1s;
+                white-space: nowrap;
+                background: transparent;
+                border: none;
+                color: inherit;
+                cursor: pointer;
+                .icon{
+                    font-size: 20px;
+                    font-weight: 400;
+                    height: 20px;
+                    line-height: 20px;
+                    vertical-align: middle;
+                    width: 20px;
+                    margin-right: 6px;
+                }
+                .reply-text{
+                    font-size: 13px;
+                    font-weight: lighter;
+                }
+            }
+            .reply-btn:hover{
+                background: #ededed;
+            }
+        }
+    }
 }
-.comment-icon{
-    border: 1px solid #d3cece;
-    background: none;
+
+.line{
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    height: 100%;
+    margin-left: 5px;
+    vertical-align: top;
+    width: 16px;
+    .threadline{
+        border-right: 2px solid #EDEFF1;
+        display: block;
+        height: 100%;
+        width: 50%;
+    }
+
+}
+.comment-block{
+    width: 100%;
+}
+
+.content-holder{
     display: flex;
-    width: 90px;
-    height: 30px;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-    border-radius: 5px;
+    justify-content: flex-start;
 }
 
-.comment-icon:hover{
-    border: 1px solid #f8f7f7;
 
-    background-color: rgb(224, 224, 224);
+.standard{
+    margin-left: 0;
+    min-height: 18px;
+    margin-bottom: 6px;
 }
+
